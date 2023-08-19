@@ -84,8 +84,9 @@ jobs:
       uses: unifreq/openwrt_packit@master
       env:
         OPENWRT_ARMVIRT: openwrt/bin/targets/*/*/*.tar.gz
-        KERNEL_VERSION_NAME: 5.15.126
+        KERNEL_VERSION_NAME: 5.4.
         PACKAGE_SOC: s905d
+        KERNEL_AUTO_LATEST: true
         GZIP_IMGS: .xz
         SW_FLOWOFFLOAD: 0
         SFE_FLOW: 0
@@ -102,7 +103,7 @@ jobs:
         body: |
           首次使用建议全新刷写
           * 基本信息
-          IP: 192.168.2.2
+          IP: 192.168.123.2
           账户: root
           密码: password
 
@@ -111,5 +112,5 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        keep_latest: 2
+        keep_latest: 12
         delete_tags : true
